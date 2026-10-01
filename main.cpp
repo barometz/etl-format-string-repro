@@ -1,8 +1,8 @@
 /*
-This is a reproducer for a bug in ETL 20.49 + MSVC 14.51.36231 where
-etl::format_string::_sv (an etl::string_view) ends up with garbage extra bytes.
-Sometimes it's another copy of the input string (separated from the original by
-\0), but I've also seen C:\Program Files in there.
+This is a reproducer for a bug in ETL 20.49 + MSVC 14.44.35207 and 14.51.36231
+where etl::format_string::_sv (an etl::string_view) ends up with garbage extra
+bytes. Sometimes it's another copy of the input string (separated from the
+original by \0), but I've also seen C:\Program Files in there.
 
 It only occurs on C++20 or higher which suggests it's to do with the consteval
 constructor, and is resolved by enabling string pooling (/GF) which suggests a
