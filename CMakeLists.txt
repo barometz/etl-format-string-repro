@@ -9,11 +9,3 @@ project(etl-fmt-string-repro)
 add_compile_options(/std:c++20)
 
 add_executable(${PROJECT_NAME} main.cpp)
-include(FetchContent)
-FetchContent_Declare(
-    etl
-    GIT_REPOSITORY https://github.com/ETLCPP/etl.git
-    GIT_TAG 20.49.0
-)
-FetchContent_MakeAvailable(etl)
-target_link_libraries(${PROJECT_NAME} PRIVATE etl)
